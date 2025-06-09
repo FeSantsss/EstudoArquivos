@@ -8,14 +8,9 @@ import java.io.IOException;
 public class Program {
 
 	public static void main(String[] args) {
+		File file = new File("/home/santsss/Documentos/in.txt");
 
-		FileReader fr = null;
-		BufferedReader br = null;
-
-		try {
-			File file = new File("/home/santsss/Documentos/in.txt");
-			fr = new FileReader(file);
-			br = new BufferedReader(fr);
+		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 
 			String line = br.readLine();
 
@@ -26,16 +21,10 @@ public class Program {
 
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
-		} finally {
-			try {
-				if (fr != null) {
-					fr.close();
-				}
-			} catch (IOException e) {
-				System.out.println("Error closing FileReader: " + e.getMessage());
-			}
 		}
-
+		finally {
+			System.out.println("Finally block executed.");
+		}
 	}
 
 }
