@@ -8,9 +8,7 @@ import java.io.IOException;
 public class Program {
 
 	public static void main(String[] args) {
-		File file = new File("/home/santsss/Documentos/in.txt");
-
-		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("/home/santsss/Documentos/in.txt"))) {
 
 			String line = br.readLine();
 
@@ -22,9 +20,5 @@ public class Program {
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-		finally {
-			System.out.println("Finally block executed.");
-		}
-	}
 
 }
