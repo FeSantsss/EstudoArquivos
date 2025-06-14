@@ -6,18 +6,21 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Program {
 
 	public static void main(String[] args) {
 		File path = new File("/home/santsss/Documentos/in.txt");
+		Scanner sc = new Scanner(System.in);
 
-		String[] linhas = new String[] { "oi ", "aoba ", "me chamo felipy" };
+		Integer[] linhas = new Integer[5];
 
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
 
-			for (String line : linhas) {
-				bw.write(line);
+			for (Integer line : linhas) {
+				bw.write(sc.nextLine());
+				bw.newLine();
 			}
 
 		} catch (IOException e) {
